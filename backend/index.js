@@ -1,12 +1,14 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import authRouter from "./routers/auth.router.js"
+import dotenv from 'dotenv'
 
 const app = express();
 app.use(express.json());
+dotenv.config()
 
 app.use("/api/auth", authRouter)
-mongoose.connect("mongodb+srv://jinmoyee99:jinmoyee@jinmoyee.w4b2nku.mongodb.net/?retryWrites=true&w=majority&appName=jinmoyee").then(() => {
+mongoose.connect(process.env.MONGODB).then(() => {
     console.log('Connected to MongoDB')
 })
 
