@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import authRouter from "./routers/auth.router.js"
 import messageRouter from "./routers/message.router.js"
+import usersRouter from "./routers/users.router.js"
 import dotenv from 'dotenv'
 import cookieParser from 'cookie-parser'
 
@@ -12,6 +13,8 @@ dotenv.config()
 app.use(cookieParser())
 app.use("/api/auth", authRouter)
 app.use("/api/message", messageRouter)
+app.use("/api/users", usersRouter)
+
 
 mongoose.connect(process.env.MONGODB).then(() => {
     console.log('Connected to MongoDB')
