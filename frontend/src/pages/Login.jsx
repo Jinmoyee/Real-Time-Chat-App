@@ -41,6 +41,8 @@ export const Login = () => {
           </svg>
           <input type="password" className="grow" placeholder="Password"/>
         </label>
+        <button className="text-black bg-white rounded-lg p-2 text-lg font-medium hover:opacity-90">Log In</button>
+        <p>Don't have an account?<span className="text-blue-300 ml-1">Sign Up</span></p>
       </form>
     </div>
   );

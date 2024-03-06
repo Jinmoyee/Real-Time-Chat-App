@@ -99,6 +99,8 @@ export const Signup = () => {
             placeholder="Conform Password"
           />
         </label>
+        <button className="text-black bg-white rounded-lg p-2 text-lg font-medium hover:opacity-90">Sign Up</button>
+        <p>Already have an account?<span className="text-blue-300 ml-1">Log In</span></p>
       </form>
     </div>
   );
