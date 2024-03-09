@@ -1,5 +1,7 @@
 import { IoExitOutline } from "react-icons/io5";
+import userLogOut from "../hooks/userLogOut";
 export default function SideBar() {
+  const { loading, logout } = userLogOut();
   return (
     <div className="w-full bg-slate-900 lg:w-[40%] rounded-l-lg relative border-y-2 border-l-2">
       <div className="p-3">
@@ -166,7 +168,10 @@ export default function SideBar() {
         </div>
       </div>
 
-      <div className="icon absolute bottom-2 left-4">
+      <div
+        className="icon absolute bottom-2 left-4 cursor-pointer"
+        onClick={logout}
+      >
         <IoExitOutline size={30} color="white" />
       </div>
     </div>
