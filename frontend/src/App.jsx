@@ -7,12 +7,13 @@ import { useAuthContext } from "./context/AuthContext";
 
 export default function App() {
   const { authUser } = useAuthContext();
+  // console.log(authUser);
   return (
     <div>
       <Routes>
         <Route
           path="/home"
-          element={authUser ? <Home /> : <Navigate to="/" />}
+          element={authUser ? <Home /> : <Navigate to={"/"} />}
         />
         <Route
           path="/"
