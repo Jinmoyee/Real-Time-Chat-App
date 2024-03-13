@@ -27,7 +27,24 @@ export default function SideBar() {
     }
   };
   return (
-    <div className="w-full bg-slate-900 lg:w-[40%] rounded-l-lg relative border-y-2 border-l-2">
+    <div
+      className="w-full bg-slate-900 lg:w-[40%] 
+        rounded-tl-none
+        rounded-tr-none
+        rounded-bl-none
+        rounded-br-none
+        md:rounded-tl-lg
+        md:rounded-tr-none
+        md:rounded-bl-lg
+        md:rounded-br-none
+        relative 
+        border-t-2 
+        border-b-0 
+        md:border-b-2 
+        border-l-2 
+        border-r-2
+        md:border-r-0"
+    >
       <div>
         {load ? (
           <div className="flex justify-center mt-[50%]">
@@ -58,6 +75,7 @@ export default function SideBar() {
                 </svg>
               </label>
             </div>
+            {/* <div>under users h-[27rem]</div> */}
             <div className="users h-[27rem] overflow-y-scroll scrollbar-style">
               <div className="flex items-center flex-col px-3">
                 {userDetails.map((users) => (

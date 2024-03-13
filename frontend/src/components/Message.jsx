@@ -27,7 +27,21 @@ export default function Message() {
   return (
     <>
       {!selectedConversation ? (
-        <div className="w-full bg-slate-800 lg:w-[60%] rounded-r-lg border-2">
+        <div
+          className="
+          w-full 
+          bg-slate-800 
+          lg:w-[60%] 
+          rounded-tl-none
+          rounded-tr-none
+          rounded-bl-none
+          rounded-br-none
+          md:rounded-tl-none
+          md:rounded-tr-lg
+          md:rounded-bl-none
+          md:rounded-br-lg
+          border-2"
+        >
           <div className="flex items-center justify-center flex-col h-full gap-3">
             <h2 className="text-2xl font-semibold">
               Welcome 👋 {authUser.fullName} 🎃
@@ -38,9 +52,25 @@ export default function Message() {
         </div>
       ) : (
         <>
-          <div className="w-full bg-slate-800 lg:w-[60%] rounded-r-lg border-2">
-            <h3 className="p-4 bg-white text-black font-lg font-medium rounded-tr-md">
-              <span className="text-xl font-semibold text-slate-700">To: </span>
+          <div
+            className="
+            w-full 
+            bg-slate-800 
+            lg:w-[60%] 
+            rounded-tl-none
+            rounded-tr-none
+            rounded-bl-none
+            rounded-br-none
+            md:rounded-tl-none
+            md:rounded-tr-lg
+            md:rounded-bl-none
+            md:rounded-br-lg
+            border-2"
+          >
+            <h3 className="p-4 bg-white text-black font-lg font-medium rounded-tr-none md:rounded-tr-md">
+              <span className="text-xl font-semibold text-slate-700 rounded-bl-lg md:rounded-bl-none">
+                To:{" "}
+              </span>
               <span className="underline">{selectedConversation.fullName}</span>
             </h3>
             <div>
@@ -48,11 +78,11 @@ export default function Message() {
                 <Messages />
               </div>
             </div>
-            <div className="send-data relative">
+            <div className="send-data relative  bottom-0 md:bottom-1">
               <input
                 type="text"
                 placeholder="Message"
-                className="w-full p-3 rounded-br-lg outline-none"
+                className="w-full p-3 rounded-br-none rounded-bl-none md:rounded-bl-none outline-none"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
               />

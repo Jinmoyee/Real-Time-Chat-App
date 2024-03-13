@@ -3,8 +3,8 @@ import SideBar from "../components/SideBar";
 
 export const Home = () => {
   return (
-    <div className="flex items-center justify-center h-screen bg-black">
-      <div className="w-[80%] max-h-[80vh] h-[80vh] flex justify-between flex-row flex-wrap">
+    <div className="flex items-center justify-center h-screen">
+      <div className="w-[100%] md:w-[80%] flex flex-col md:flex-row min-h-[10%] h-[100%] md:h-[80%]">
         <SideBar />
         <Message />
       </div>
