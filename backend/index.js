@@ -19,10 +19,6 @@ mongoose.connect(process.env.MONGODB).then(() => {
 });
 const __dirname = path.resolve();
 
-server.listen(1000, () => {
-  console.log("Server is running on port 1000");
-});
-
 app.use("/api/auth", authRouter);
 app.use("/api/message", messageRouter);
 app.use("/api/users", usersRouter);
@@ -41,4 +37,8 @@ app.use((err, req, res, next) => {
     statusCode,
     message,
   });
+});
+
+server.listen(1000, () => {
+  console.log("Server is running on port 1000");
 });
