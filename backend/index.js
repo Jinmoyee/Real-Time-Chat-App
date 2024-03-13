@@ -9,19 +9,29 @@ import cors from "cors";
 import { app, server } from "./socket/socket.js";
 import path from "path";
 
-const __dirname = path.resolve();
-
 app.use(cors());
 app.use(express.json());
 dotenv.config();
 app.use(cookieParser());
+
+mongoose.connect(process.env.MONGODB).then(() => {
+  console.log("Connected to MongoDB");
+});
+const __dirname = path.resolve();
+
+server.listen(1000, () => {
+  console.log("Server is running on port 1000");
+});
+
 app.use("/api/auth", authRouter);
 app.use("/api/message", messageRouter);
 app.use("/api/users", usersRouter);
 
-// app.get("/test", (req, res) => {
-//   res.send("Hello World");
-// });
+app.use(express.static(path.join(__dirname, "/frontend/dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
+});
 
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
@@ -31,18 +41,4 @@ app.use((err, req, res, next) => {
     statusCode,
     message,
   });
-});
-
-app.use(express.static(path.join(__dirname, "/frontend/dist")));
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
-});
-
-mongoose.connect(process.env.MONGODB).then(() => {
-  console.log("Connected to MongoDB");
-});
-
-server.listen(1000, () => {
-  console.log("Server is running on port 1000");
 });
