@@ -4,8 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+<<<<<<< HEAD
     "dev": "nodemon backend/index.js",
     "start": "node backend/index.js",
+=======
+    "server": "nodemon backend/index.js",
+"start": "node backend/index.js",
+>>>>>>> eafab5d1bb9760ed7c49f62bf6e01decec53740e
     "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "type": "module",
