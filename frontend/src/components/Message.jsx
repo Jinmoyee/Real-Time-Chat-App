@@ -60,7 +60,7 @@ export default function Message() {
             rounded-tl-none
             rounded-tr-none
             rounded-bl-none
-            rounded-br-none
+            rounded-br-lg
             md:rounded-tl-none
             md:rounded-tr-lg
             md:rounded-bl-none
@@ -78,11 +78,11 @@ export default function Message() {
                 <Messages />
               </div>
             </div>
-            <div className="send-data relative  bottom-0 md:bottom-1">
+            <div className="send-data relative  bottom-0 md:bottom-0.5">
               <input
                 type="text"
                 placeholder="Message"
-                className="w-full p-3 rounded-br-none rounded-bl- md:rounded-bl-none outline-none"
+                className="w-full p-3 rounded-bl-lg md:rounded-bl-none rounded-br-lg outline-none"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
               />
