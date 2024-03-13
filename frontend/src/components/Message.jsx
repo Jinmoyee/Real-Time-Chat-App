@@ -82,7 +82,7 @@ export default function Message() {
               <input
                 type="text"
                 placeholder="Message"
-                className="w-full p-3 rounded-br-none rounded-bl-none md:rounded-bl-none outline-none"
+                className="w-full p-3 rounded-br-none rounded-bl- md:rounded-bl-none outline-none"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
               />

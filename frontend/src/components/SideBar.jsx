@@ -76,7 +76,7 @@ export default function SideBar() {
               </label>
             </div>
             {/* <div>under users h-[27rem]</div> */}
-            <div className="users h-[27rem] overflow-y-scroll scrollbar-style">
+            <div className="users h-[27rem] overflow-y-scroll scrollbar-style mb-[3rem]">
               <div className="flex items-center flex-col px-3">
                 {userDetails.map((users) => (
                   <Users users={users} key={users._id} emoji={RandomEmoji()} />
