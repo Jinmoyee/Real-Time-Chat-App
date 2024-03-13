@@ -42,7 +42,7 @@ export const Signup = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-[100dvh] flex-col">
+    <div className="flex justify-center items-center h-screen flex-col">
       <h1 className="text-4xl font-semibold pb-[2rem]">
         Sign <span className="text-blue-400 text-5xl">Up</span>
       </h1>
