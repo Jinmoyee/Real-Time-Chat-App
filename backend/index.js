@@ -42,3 +42,6 @@ app.use((err, req, res, next) => {
     message,
   });
 });
+// const err = new Error(message);
+// ^
+// Error: Cannot find module './message_stream'
