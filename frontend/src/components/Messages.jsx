@@ -1,10 +1,12 @@
 import UsersData from "../Zustand/UsersData";
 import getMessages from "../hooks/getMessages";
+import userListenMessages from "../hooks/userListenMessages";
 import UsersMessages from "./UsersMessages";
 import { useEffect, useRef } from "react";
 export default function Messages() {
   const lastMessageRef = useRef();
   const { messages, loading } = getMessages();
+  userListenMessages();
 
   useEffect(() => {
     setTimeout(() => {
