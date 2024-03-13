@@ -5,11 +5,9 @@ import messageRouter from "./routers/message.router.js";
 import usersRouter from "./routers/users.router.js";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
-import cors from "cors";
 import { app, server } from "./socket/socket.js";
 import path from "path";
 
-app.use(cors());
 app.use(express.json());
 dotenv.config();
 app.use(cookieParser());
