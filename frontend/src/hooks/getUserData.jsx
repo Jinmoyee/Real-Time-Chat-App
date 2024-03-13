@@ -11,7 +11,7 @@ export const getUserData = () => {
         const res = await fetch("/api/users");
         const data = await res.json();
         if (data.error) {
-          throw new Error(data.error);
+          toast.error(data.error);
           setLoad(false);
         }
         setUserDetails(data);

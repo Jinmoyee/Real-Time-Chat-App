@@ -27,7 +27,9 @@ function userLogIn() {
       });
       const data = await res.json();
       if (data.error) {
-        throw new Error(data.error);
+        toast.error(data.error);
+        setLoading(false);
+        return;
       }
       localStorage.setItem("chat-user", JSON.stringify(data));
       setAuthUser(data);

@@ -47,7 +47,7 @@ function userSignup() {
         return;
       }
       if (data.error) {
-        throw new Error(data.error);
+        toast.error(data.error);
       }
       setLoading(false);
     } catch (error) {
