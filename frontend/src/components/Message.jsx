@@ -42,7 +42,7 @@ export default function Message() {
           md:rounded-br-lg
           border-2"
         >
-          <div className="flex items-center justify-center flex-col h-full gap-3">
+          <div className="flex items-center justify-center flex-col h-[28rem] gap-3">
             <h2 className="text-2xl font-semibold">
               Welcome 👋 {authUser.fullName} 🎃
             </h2>
