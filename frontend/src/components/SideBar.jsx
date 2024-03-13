@@ -3,10 +3,29 @@ import userLogOut from "../hooks/userLogOut";
 import { getUserData } from "../hooks/getUserData";
 import Users from "./Users";
 import { RandomEmoji } from "../utils/RandomEmoji";
-
+import { useState } from "react";
+import UsersData from "../Zustand/UsersData";
+import { toast } from "sonner";
 export default function SideBar() {
   const { userDetails, load } = getUserData();
+  const { setSelectedConversation } = UsersData();
   const { loading, logout } = userLogOut();
+  const [searchValue, setSearchValue] = useState("");
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (!searchValue) return;
+    const conversation = userDetails.find((e) =>
+      e.fullName.toLowerCase().includes(searchValue.toLowerCase())
+    );
+
+    if (conversation) {
+      setSelectedConversation(conversation);
+      setSearchValue("");
+    } else {
+      toast.error("No user found!");
+    }
+  };
   return (
     <div className="w-full bg-slate-900 lg:w-[40%] rounded-l-lg relative border-y-2 border-l-2">
       <div>
@@ -18,12 +37,18 @@ export default function SideBar() {
           <div>
             <div className="p-3">
               <label className="input input-bordered flex items-center gap-2 input-primary bg-slate-900">
-                <input type="text" className="grow" placeholder="Search" />
+                <input
+                  type="text"
+                  className="grow"
+                  placeholder="Search"
+                  onChange={(e) => setSearchValue(e.target.value)}
+                />
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 16 16"
                   fill="currentColor"
                   className="w-4 h-4 opacity-70"
+                  onClick={handleSearch}
                 >
                   <path
                     fillRule="evenodd"

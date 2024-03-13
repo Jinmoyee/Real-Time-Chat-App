@@ -1,34 +1,50 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Messages from "./Messages";
 import { IoSendOutline } from "react-icons/io5";
 import { TiMessages } from "react-icons/ti";
+import sendMessages from "../hooks/sendMessages";
+import UsersData from "../Zustand/UsersData";
+import { useAuthContext } from "../context/AuthContext";
 
 export default function Message() {
-  const [noChatSelected, setNoChatSelected] = useState(true);
+  const { selectedConversation, setSelectedConversation } = UsersData();
+  const { sendMessage, loading } = sendMessages();
+  const [message, setMessage] = useState("");
+  const { authUser } = useAuthContext();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!message) {
+      return;
+    }
+    await sendMessage(message);
+    setMessage("");
+  };
+  useEffect(() => {
+    return () => setSelectedConversation(null);
+  }, []);
+
   return (
     <>
-      {noChatSelected ? (
+      {!selectedConversation ? (
         <div className="w-full bg-slate-800 lg:w-[60%] rounded-r-lg border-2">
           <div className="flex items-center justify-center flex-col h-full gap-3">
-            <h2 className="text-2xl font-semibold">Welcome 👋 Joe Doe 🎃</h2>
+            <h2 className="text-2xl font-semibold">
+              Welcome 👋 {authUser.fullName} 🎃
+            </h2>
             <p className="text-xl">Select a chat to start Message</p>
-            <TiMessages size={80}/>
+            <TiMessages size={80} />
           </div>
         </div>
       ) : (
         <>
           <div className="w-full bg-slate-800 lg:w-[60%] rounded-r-lg border-2">
-            <h3 className="p-4 bg-white text-black text-lg font-medium rounded-tr-md">
-              Sumit
+            <h3 className="p-4 bg-white text-black font-lg font-medium rounded-tr-md">
+              <span className="text-xl font-semibold text-slate-700">To: </span>
+              <span className="underline">{selectedConversation.fullName}</span>
             </h3>
             <div>
               <div className="messages  h-[28rem] overflow-y-scroll scrollbar-style">
-                <Messages />
-                <Messages />
-                <Messages />
-                <Messages />
-                <Messages />
-                <Messages />
                 <Messages />
               </div>
             </div>
@@ -37,11 +53,15 @@ export default function Message() {
                 type="text"
                 placeholder="Message"
                 className="w-full p-3 rounded-br-lg outline-none"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
               />
               <IoSendOutline
                 size={30}
                 color="white"
-                className="absolute bottom-2 right-2"
+                className="absolute bottom-2 right-2 cursor-pointer"
+                type="submit"
+                onClick={handleSubmit}
               />
             </div>
           </div>

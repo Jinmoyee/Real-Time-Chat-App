@@ -1,10 +1,13 @@
 import UsersData from "../Zustand/UsersData";
+import { useSocketContext } from "../context/SocketContext";
 export default function Users({ users, emoji, idx }) {
   const lastUser = idx;
   const { selectedConversation, setSelectedConversation } = UsersData();
+  const { onlineUsers } = useSocketContext();
+  const isOnline = onlineUsers.includes(users._id);
 
   const isSelected = selectedConversation?._id === users._id;
-  console.log(lastUser);
+  // console.log(lastUser);
   return (
     <div
       className={`flex items-center border-b justify-between w-full p-2 pt-3 hover:bg-slate-800 ${
@@ -15,7 +18,7 @@ export default function Users({ users, emoji, idx }) {
     >
       <div className="flex items-center">
         <div>
-          <div className="avatar online">
+          <div className={`avatar ${isOnline ? "online" : ""}`}>
             <div className="w-10 rounded-full">
               <img src={users.avatar} />
             </div>

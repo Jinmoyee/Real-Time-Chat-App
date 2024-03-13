@@ -32,7 +32,7 @@ export const signUp = async (req, res, next) => {
       id: newUser._id,
       fullName: newUser.fullName,
       userName: newUser.userName,
-      // avatar: newUser.avatar,
+      avatar: newUser.avatar,
     });
   } catch (err) {
     next(err);
@@ -59,7 +59,7 @@ export const login = async (req, res, next) => {
       id: user._id,
       fullName: user.fullName,
       userName: user.userName,
-      //   avatar: user.avatar,
+      avatar: user.avatar,
     });
   } catch (error) {
     next(error);

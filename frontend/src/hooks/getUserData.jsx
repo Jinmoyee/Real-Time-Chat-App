@@ -10,11 +10,11 @@ export const getUserData = () => {
       const userData = async () => {
         const res = await fetch("/api/users");
         const data = await res.json();
-        setUserDetails(data);
         if (data.error) {
           throw new Error(data.error);
           setLoad(false);
         }
+        setUserDetails(data);
         setLoad(false);
       };
       userData();

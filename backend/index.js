@@ -6,12 +6,11 @@ import usersRouter from "./routers/users.router.js";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import { app, server } from "./socket/socket.js";
 
-const app = express();
+app.use(cors());
 app.use(express.json());
 dotenv.config();
-app.use(cors());
-
 app.use(cookieParser());
 app.use("/api/auth", authRouter);
 app.use("/api/message", messageRouter);
@@ -34,6 +33,6 @@ app.use((err, req, res, next) => {
     message,
   });
 });
-app.listen(1000, () => {
+server.listen(1000, () => {
   console.log("Server is running on port 1000");
 });
