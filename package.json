@@ -4,13 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-<<<<<<< HEAD
+    "server": "nodemon backend/index.js",
     "dev": "nodemon backend/index.js",
     "start": "node backend/index.js",
-=======
-    "server": "nodemon backend/index.js",
-"start": "node backend/index.js",
->>>>>>> eafab5d1bb9760ed7c49f62bf6e01decec53740e
     "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "type": "module",
@@ -18,6 +14,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
