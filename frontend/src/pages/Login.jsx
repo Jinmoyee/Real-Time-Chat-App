@@ -23,7 +23,7 @@ export const Login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen flex-col">
+    <div className="flex justify-center items-center h-[100dvh] flex-col">
       <h1 className="text-4xl font-semibold pb-[2rem]">
         Log<span className="text-blue-400 text-5xl"> In</span>
       </h1>

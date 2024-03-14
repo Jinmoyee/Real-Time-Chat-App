@@ -76,7 +76,7 @@ export default function SideBar() {
               </label>
             </div>
             {/* <div>under users h-[27rem]</div> */}
-            <div className="users h-[27rem] overflow-y-scroll scrollbar-style mb-[3rem]">
+            <div className="users h-[20rem] overflow-y-scroll scrollbar-style mb-[3rem]">
               <div className="flex items-center flex-col px-3">
                 {userDetails.map((users) => (
                   <Users users={users} key={users._id} emoji={RandomEmoji()} />
@@ -85,10 +85,10 @@ export default function SideBar() {
             </div>
 
             <div
-              className="icon absolute bottom-2 left-4 cursor-pointer"
+              className="icon absolute bottom-2 left-2 cursor-pointer rounded-full bg-white p-0.5"
               onClick={logout}
             >
-              <IoExitOutline size={30} color="white" />
+              <IoExitOutline size={30} color="black" className="pl-1" />
             </div>
           </div>
         )}
