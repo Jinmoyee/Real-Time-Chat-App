@@ -42,7 +42,7 @@ export default function Message() {
           md:rounded-br-lg
           border-2"
         >
-          <div className="flex items-center justify-center flex-col h-[28rem] gap-3">
+          <div className="flex items-center justify-center flex-col h-[28rem] gap-3 p-[1rem] text-center">
             <h2 className="text-2xl font-semibold">
               Welcome 👋 {authUser.fullName} 🎃
             </h2>
@@ -65,7 +65,8 @@ export default function Message() {
             md:rounded-tr-lg
             md:rounded-bl-none
             md:rounded-br-lg
-            border-2"
+            border-2
+            relative"
           >
             <h3 className="p-4 bg-white text-black font-lg font-medium rounded-tr-none md:rounded-tr-md">
               <span className="text-xl font-semibold text-slate-700 rounded-bl-lg md:rounded-bl-none">
@@ -78,7 +79,7 @@ export default function Message() {
                 <Messages />
               </div>
             </div>
-            <div className="send-data relative  bottom-0 md:bottom-0.5">
+            <div className="send-data absolute bottom-0 w-full">
               <input
                 type="text"
                 placeholder="Message"
